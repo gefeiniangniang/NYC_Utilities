@@ -1,0 +1,301 @@
+.expanded_dialog_container {
+    display: none;
+}
+
+.expanded_dialog {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 75%;
+    background-color: rgb(255, 255, 255);
+    z-index: 20;
+}
+
+.expanded_dialog_banner {
+    position: relative;
+    width: 100%;
+    height: 30%;
+    overflow: hidden;
+    text-align: left;
+}
+
+.expanded_dialog_banner_image {
+    position: absolute;
+    display: block;
+    top: -50px;
+    left: 0px;
+    width: 100%;
+    opacity: 45%;
+}
+
+.expanded_dialog_banner_info_container {
+    display: flex;
+    padding: 0.5em;
+}
+
+.expanded_dialog_banner_info {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    margin-right: 1em;
+    width: fit-content;
+    max-width: 70%;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 0.5em;
+}
+
+.expanded_dialog_banner_info img {
+    width: 20px;
+    padding: 0.5em 0.5em 0em 0em;
+}
+
+.expanded_dialog_banner_info > * {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.expanded_dialog_banner_icons {
+    position: relative;
+    padding: 0.5em;
+}
+
+.expanded_dialog_banner_icons img {
+    width: 30px;
+}
+
+.expanded_dialog_tab_group {
+    position: absolute;
+    bottom: 0px;
+    left: 1em;
+    display: flex;
+    width: fit-content;
+    font-size: larger;
+    font-weight: 500;
+}
+
+.expanded_dialog_tab {
+    position: relative;
+    width: 70px;
+    height: 28px;
+    vertical-align: middle;
+    background-size: cover;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.expanded_dialog_tab.tab_level_0 {
+    background-image: url('/static/icons/tab_shape_0.svg');
+}
+
+.expanded_dialog_tab.tab_level_1 {
+    background-image: url('/static/icons/tab_shape_1.svg');
+}
+
+.expanded_dialog_tab.tab_level_2 {
+    background-image: url('/static/icons/tab_shape_2.svg');
+}
+
+.expanded_dialog_tab.tab_level_3 {
+    background-image: url('/static/icons/tab_shape_3.svg');
+}
+
+.expanded_dialog_tab div {
+    position: absolute;
+    top: 0.5em;
+    left: 0.5em;
+}
+
+.expanded_dialog_tab img {
+    vertical-align: middle;
+    width: 70px;
+}
+
+.expanded_dialog_content_info,
+.expanded_dialog_content_ratings,
+.expanded_dialog_content_photos,
+.expanded_dialog_content_notes {
+    margin: 1em;
+    display: none;
+}
+
+.expanded_dialog.info_open .expanded_dialog_content_info,
+.expanded_dialog.ratings_open .expanded_dialog_content_ratings,
+.expanded_dialog.photos_open .expanded_dialog_content_photos,
+.expanded_dialog.notes_open .expanded_dialog_content_notes {
+    display: block;
+}
+
+.expanded_dialog_content_info .flexbox_container {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.expanded_dialog_content_info .flexbox_container > div {
+    text-align: left;
+    margin: 0.5em;
+}
+
+.expanded_dialog_content_ratings > div {
+    margin-top: 2em;
+}
+
+.expanded_dialog_content_ratings span {
+    font-size: larger;
+    margin-left: 0.5em;
+}
+
+.expanded_dialog_photo_overlay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 360px;
+    height: 640px;
+    background-color: rgba(51, 51, 51, 0.95);
+    display: none;
+    z-index: 100;
+}
+
+.expanded_dialog_photo_overlay > img {
+    margin-top: 45%;
+}
+
+.expanded_dialog_photo_overlay > .button {
+    float: left;
+    margin: 1em;
+}
+
+.expanded_dialog_photo_overlay > .invert {
+    float: right;
+    margin: 1em;
+}
+
+.expanded_dialog_content_photos .photo_box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.expanded_dialog_content_photos .photo_box img {
+    margin: 0.5em;
+}
+
+.expanded_dialog_content_photos .photo_box h3 {
+    margin: 0 auto;
+}
+
+.expanded_dialog_add_photo_button,
+.expanded_dialog_add_note_button {
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+}
+
+.expanded_dialog_photo {
+    cursor: pointer;
+}
+
+.expanded_dialog_content_notes .keywords {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5em;
+}
+
+.expanded_dialog_content_notes .keywords div {
+    margin: 0.5em;
+}
+
+.expanded_dialog_content_notes .bordered_box {
+    overflow: hidden;
+    height: 16em;
+}
+
+.expanded_dialog_content_notes .notes_box {
+    position: relative;
+}
+
+.expanded_dialog_note {
+    background-color: rgb(255, 255, 255);
+    border: 1px #333 solid;
+    margin-bottom: 0.5em;
+    cursor: pointer;
+    min-height: 3em;
+}
+
+.expanded_dialog_note.selected {
+    position: absolute;
+    transform: scale(1.11) translate(-1%, -5%);
+    width: 91%;
+    z-index: 1000;
+    display: none;
+    cursor: auto;
+}
+
+.expanded_dialog_note.hidden {
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+}
+
+.expanded_dialog_note.selected .button {
+    display: block;
+    float: right;
+    margin: 0em 0.3em 0.3em 0.3em;
+    transform: scale(0.9);
+}
+
+.expanded_dialog_note > * {
+    display: inline-block;
+    vertical-align: middle;
+    pointer-events: none;
+}
+
+.expanded_dialog_note .note_text {
+    padding: 0.5em;
+    width: 60%;
+    min-height: 2.2em;
+}
+
+.expanded_dialog_note .votes {
+    padding: 0.5em;
+    float: right;
+}
+
+.expanded_dialog_favorite.is_favorite .icon_heart_invert,
+.expanded_dialog_favorite .icon_heart {
+    display: block;
+}
+
+.expanded_dialog_favorite.is_favorite .icon_heart,
+.expanded_dialog_favorite .icon_heart_invert {
+    display: none;
+}
+
+.expanded_dialog_feedback {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 16%;
+    background-color: #34456F;
+    text-align: center;
+    color: #FFF;
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 1s;
+    z-index: 2;
+}
+
+.expanded_dialog_feedback > * {
+    margin: 1em auto 0em auto;
+}
+
+.expanded_dialog_feedback_button {
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+}
+
+.expanded_dialog_feedback img {
+    width: 3em;
+}

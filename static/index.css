@@ -1,0 +1,291 @@
+#app_container {
+    width: 360px;
+    height: 640px;
+    position: relative;
+}
+
+#background_map {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+}
+
+h1 {
+    font-size: 15pt;
+}
+
+h2 {
+    font-size: 13pt;
+    font-weight: 500;
+}
+
+h3 {
+    font-size: 11pt;
+    font-weight: 500;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0em 0em 0.5em 0em;
+}
+
+a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+}
+
+#bottom_bar{
+    background-color: grey;
+    height: 600px;
+    width:600px;
+}
+
+.overlay {
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    background-color: blue;
+    font-size: xx-large;
+    width: 100px;
+    height:100px;
+}
+
+.icon_heart_invert,
+.icon_heart {
+    position: absolute;
+    bottom: 0.5em;
+    right: 0.5em;
+    width: 30px;
+    cursor: pointer;
+}
+
+.icon_star_yellow,
+.icon_star_gray {
+    width: 30px;
+    vertical-align: middle;
+}
+
+.icon_close,
+.icon_close_invert {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    cursor: pointer;
+}
+
+.basic_background {
+    position: absolute;
+    background-image: url("/static/mockups/Final\ Project\ Design-12.png");
+    height: 640px;
+    width: 360px;
+    z-index: -1;
+}
+
+.button {
+    width: fit-content;
+    height: fit-content;
+    border-radius: 0.3em;
+    padding: 0.3em;
+    margin: 0.5em 0em 0.5em 0em;
+    background-color: #FFF;
+}
+
+.button.plain {
+    color: #333;
+    border: 2px #333 solid;
+}
+
+.button.important {
+    color: #9A3030;
+    border: 2px #9A3030 solid;
+}
+
+.button.constantwidth {
+    text-align: center;
+    color: #333;
+    border: 2px #333 solid;
+    width: 115px;
+}
+
+.button.big {
+    text-align: center;
+    color: #333;
+    border: 2px #333 solid;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: large;
+}
+
+.flexbox_container {
+    display: flex;
+}
+
+.flexbox_break {
+    flex-basis: 100%;
+    height: 0px !important;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.bordered_box {
+    background-color: #C4C4C4;
+    border: #333 5px solid;
+    border-radius: 10px;
+    padding: 1em;
+}
+
+#bottom_bar{
+    background-color: rgba(52, 69, 111, 0.9);
+    height: 14%;
+    width:100%;
+    z-index: 0;
+    position: absolute;
+    bottom: 0;
+    display:table;
+    /* padding-left: 1%;
+    padding-right: 1%; */
+}
+
+.bottom_padding{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    width: 3%;
+}
+
+.bottom_div{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    width: 23%;
+    color: white;
+    font-family: "SF Pro";
+    font-size: 8pt;
+    line-height: 98%;
+}
+
+.bottom_button{
+    width:60px;
+    height:60px;
+    border-radius: 50%;
+    text-align:center;
+    margin-bottom: 2px;
+}
+
+#bottom_button_restroom{
+    background: url(./images/bottom_button_restroom.png) no-repeat center;
+    background-size: 40%;
+    background-color: #FF6060; 
+    border: 4px solid #FF0000;
+}
+
+#bottom_button_water{
+    background: url(./images/bottom_button_water.png) no-repeat center;
+    background-size: 50%;
+    background-color: #4563FF; 
+    border: 4px solid #0029FF;
+}
+
+#bottom_button_indoor{
+    background: url(./images/bottom_button_indoor.png) no-repeat center;
+    background-size: 60%;
+    background-color: #CC00FF; 
+    border: 4px solid #8A01AC;
+}
+
+#bottom_button_outdoor{
+    background: url(./images/bottom_button_outdoor.png) no-repeat center;
+    background-size: 70%;
+    background-color: #0FBC00; 
+    border: 4px solid #0B8D00;
+}
+
+#customize_close {
+    margin-left: 260px;
+    margin-top: 20px;
+    background-color: transparent;
+    color: white;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.votes .icon_no,
+.votes .icon_yes {
+    vertical-align: middle;
+    margin-right: 0.3em;
+}
+
+.invert {
+    color: #FFF;
+}
+#googleMap{
+    width: 100%;
+    min-height: 100%;
+    z-index: 0;
+    position: absolute; 
+    top: 0;
+    left: 0;
+}
+
+a[href^="http://maps.google.com/maps"]{display:none !important}
+a[href^="https://maps.google.com/maps"]{display:none !important}
+
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}
+
+#bottom_bar_customize {
+    width: 90%;
+    height: 50%;
+    z-index: 1;
+    background-color: rgba(52, 69, 111, 0.9);
+    border: 5px solid white;
+    border-radius: 10%;
+    position: absolute;
+    margin-top: 55%;
+    /* display:table; */
+    /* float:left */
+    text-align: center;
+    visibility: hidden;
+    margin-left: 5%;
+}
+
+#customize_text{
+    color: white;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+#outlet_group{
+    margin-top: 30%;
+}
+#bottom_button_outlet{
+    background: url(./images/bottom_button_outlet.png) no-repeat center;
+    background-size: 50%;
+    background-color: #FFA53A; 
+    border: 4px solid #E37B00;
+}
+#button_outlet_text{
+    color:white;
+}
+
+.bottom_padding{
+display: table-cell;
+text-align: center;
+vertical-align: middle;
+width: 3%;
+}
+
+#hamburger {
+    position: absolute;
+    right: 10px;
+    top: 60px;
+    cursor: pointer;
+    z-index: 1;
+}

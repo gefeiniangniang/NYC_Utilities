@@ -1,0 +1,36 @@
+[
+    {
+        "utility" : "restroom", 
+        "locations" : 
+            [
+                {"lat":"40.780600131136445", "lng":"-73.98171736092365", "details":"<div><img src='../static/icons/location.svg' class='icon_location_type'><img>123<button id='customize_close' onclick='customize_close()'>X</button></div>"},
+                {"lat":"40.78291391636118", "lng":"-73.97859704360584", "details":"<div>restroom2</div>"},
+                {"lat":"40.78687436479793", "lng":"-73.9775081429455", "details":"<div>restroom3</div>"}
+            ]
+    },
+    {
+        "utility" : "water","locations" : [
+                {"lat":"40.786346970584695", "lng":"-73.98441476350338", "details":"<div>water1</div>"},
+                {"lat":"40.780251517725226", "lng":"-73.97108163253728", "details":"<div>water2</div>"},
+                {"lat":"40.78221888715711", "lng":"-73.97465858649619", "details":"<div>water3</div>"}
+            ]
+    },
+    {
+        "utility" : "indoor", 
+        "locations" : 
+            [
+                {"lat":"40.78560139688363", "lng":"-73.97312326554201", "details":"<div>indoor1</div>"},
+                {"lat":"40.79408434349413", "lng":"-73.97478791403802", "details":"<div>indoor2</div>"},
+                {"lat":"40.79261081226916", "lng":"-73.97538974850252", "details":"<div>indoor3</div>"}
+            ]
+    },
+    {
+        "utility" : "outdoor", 
+        "locations" : 
+            [
+                {"lat":"40.7810277329316", "lng":"-73.97057800847988", "details":"<div>outdoor1</div>"},
+                {"lat":"40.78206686063032", "lng":"-73.98743793208692", "details":"<div>outdoor2</div>"},
+                {"lat":"40.779073139084005", "lng":"-73.97345334424504", "details":"<div>outdoor3</div>"}
+            ]
+    }
+]

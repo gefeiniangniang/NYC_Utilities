@@ -1,0 +1,81 @@
+.settings_container
+{
+    display: none;
+}
+
+#settings_popup
+{
+    z-index: 3;
+    height: 370px;
+    width: 270px;
+    position: relative;
+    top: 60px;
+    margin: 0 auto;
+    color: white;
+    padding: 20px 30px 5px 30px;
+}
+
+#settings_header
+{
+    text-align: center;
+}
+
+#settings_accessibility
+{
+    margin-top: 15px;
+    text-align: left;
+}
+
+#settings_buttons
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+#settings_logout
+{
+    position: absolute;
+    bottom: 1em;
+    right: 1em;
+}
+
+#settings_logout_button
+{
+    margin-bottom: 0;
+}
+
+.settings_icon_row
+{
+    display: flex;
+    justify-content: center;
+}
+
+.settings_icon
+{
+    margin: 0 2px;
+    cursor: pointer;
+}
+
+.settings_button_column
+{
+    margin: 0 13px;
+}
+
+.settings_button
+{
+    margin-bottom: 20px;
+}
+
+.blue_popup
+{
+    background-color: rgba(52, 69, 111, .9);
+    border: solid 5px white;
+    border-radius: 15px;
+}
+
+.space_evenly
+{
+    display: flex;
+    justify-content: space-between;
+}
