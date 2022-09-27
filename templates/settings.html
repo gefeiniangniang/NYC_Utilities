@@ -1,0 +1,121 @@
+{% import 'icons.html' as icons %}
+{% import 'misc_components.html' as misc %}
+
+{% macro settings(data) %}
+<div id="settings_popup" class="blue_popup">
+    <div id="settings_header">
+        <span> </span>
+        <span><h1>Your Settings</h1></span>
+        <span id="settings_close">{{ icons.icon('close_invert') }}</span>
+    </div>
+    <div id="settings_accessibility">
+        <h2>Show only:</h2>
+        {% if data["logged_in"] %}
+        <div class="settings_icon_row">
+            <span access-id="free" class="settings_icon">
+                {% if data["accessibility"]["free"] %}
+                {{ icons.icon('free_active') }}
+                {% else %}
+                {{ icons.icon('free_inactive') }}
+                {% endif %}
+            </span>
+
+            <span access-id="unisex" class="settings_icon">
+                {% if data["accessibility"]["unisex"] %}
+                {{ icons.icon('unisex_active') }}
+                {% else %}
+                {{ icons.icon('unisex_inactive') }}
+                {% endif %}
+            </span>
+
+            <span access-id="wheelchair" class="settings_icon">
+                {% if data["accessibility"]["wheelchair"] %}
+                {{ icons.icon('wheelchair_active') }}
+                {% else %}
+                {{ icons.icon('wheelchair_inactive') }}
+                {% endif %}
+            </span>
+        </div>
+        <div class="settings_icon_row">
+            <span access-id="baby_changing" class="settings_icon">
+                {% if data["accessibility"]["baby_changing"] %}
+                {{ icons.icon('baby_changing_active') }}
+                {% else %}
+                {{ icons.icon('baby_changing_inactive') }}
+                {% endif %}
+            </span>
+
+            <span access-id="favorite" class="settings_icon">
+                {% if data["accessibility"]["favorite"] %}
+                {{ icons.icon('favorite_active') }}
+                {% else %}
+                {{ icons.icon('favorite_inactive') }}
+                {% endif %}
+            </span>
+        </div>
+        {% else %}
+        <div class="settings_icon_row">
+            <span access-id="free" class="settings_icon">
+                {% if data["accessibility"]["free"] %}
+                {{ icons.icon('free_active') }}
+                {% else %}
+                {{ icons.icon('free_inactive') }}
+                {% endif %}
+            </span>
+
+            <span access-id="unisex" class="settings_icon">
+                {% if data["accessibility"]["unisex"] %}
+                {{ icons.icon('unisex_active') }}
+                {% else %}
+                {{ icons.icon('unisex_inactive') }}
+                {% endif %}
+            </span>
+
+            <span access-id="wheelchair" class="settings_icon">
+                {% if data["accessibility"]["wheelchair"] %}
+                {{ icons.icon('wheelchair_active') }}
+                {% else %}
+                {{ icons.icon('wheelchair_inactive') }}
+                {% endif %}
+            </span>
+
+            <span access-id="baby_changing" class="settings_icon">
+                {% if data["accessibility"]["baby_changing"] %}
+                {{ icons.icon('baby_changing_active') }}
+                {% else %}
+                {{ icons.icon('baby_changing_inactive') }}
+                {% endif %}
+            </span>
+        </div>
+        {% endif %}
+    </div>
+    <div id="settings_buttons">
+        {% if data["logged_in"] %}
+        <span class="settings_button_column">
+            <span class="settings_button">
+                {{ misc.button("View your notes", "constantwidth") }}
+            </span>
+            <span class="settings_button">
+            {{ misc.button("View your photos", "constantwidth") }}
+            </span>
+        </span>
+        {% endif %}
+        <span class="settings_button_column">
+            <span id="add_location_button" class="settings_button">
+                {{ misc.button("Add a location", "constantwidth") }}
+            </span>
+        </span>
+    </div>
+    <div id="settings_logout">
+        {% if data["logged_in"] %}
+        <a href="/togglelogin" id="settings_logout_button">
+            {{ misc.button("Log out", "big") }}
+        </a>
+        {% else %}
+        <a href="/togglelogin" id="settings_login_button">
+            {{ misc.button("Log in", "big") }}
+        </a>
+        {% endif %}
+    </div>
+</div>
+{% endmacro %}

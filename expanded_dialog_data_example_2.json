@@ -1,0 +1,95 @@
+{
+    "banner_data": {
+      "location_name": "Jacqueline Kennedy Onassis Reservoir",
+      "type": "water_fountain",
+      "features": [
+        "wheelchair"
+      ],
+      "img_src": "images/water_fountain_banner.jpeg",
+      "reliability": 100,
+      "uses": 43,
+      "is_favorite": false
+    },
+    "info_data": {
+      "address_data": [
+        "Near Central Park West",
+        "New York, NY 10128",
+        "Cross street: W 86th St."
+      ],
+      "open_times_data": [
+        [
+          "12:00 AM",
+          "11:59 PM"
+        ],
+        [
+          "12:00 AM",
+          "11:59 PM"
+        ],
+        [
+          "12:00 AM",
+          "11:59 PM"
+        ],
+        [
+          "12:00 AM",
+          "11:59 PM"
+        ],
+        [
+          "12:00 AM",
+          "11:59 PM"
+        ],
+        [
+          "12:00 AM",
+          "11:59 PM"
+        ],
+        [
+          "12:00 AM",
+          "11:59 PM"
+        ]
+      ]
+    },
+    "ratings_data": {
+      "community": [
+        4,
+        5,
+        5
+      ],
+      "user": [
+        0,
+        0,
+        0
+      ]
+    },
+    "photos_data": {
+      "photos": [],
+      "selected_photo": -1
+    },
+    "notes_data": {
+      "keywords": [
+        "bridal loop"
+      ],
+      "notes": [
+        {
+          "text": "Near the bridal loop.",
+          "votes_data": {
+            "positive_votes": 14,
+            "negative_votes": 0
+          }
+        },
+        {
+          "text": "Not working during the winter.",
+          "votes_data": {
+            "positive_votes": 13,
+            "negative_votes": 1
+          }
+        },
+        {
+          "text": "Always use while I'm out for a run.",
+          "votes_data": {
+            "positive_votes": 5,
+            "negative_votes": 2
+          }
+        }
+      ],
+      "selected_note": -1
+    }
+  }

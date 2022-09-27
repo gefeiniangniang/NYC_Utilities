@@ -1,0 +1,20 @@
+{% import 'icons.html' as icons %}
+{% import 'misc_components.html' as misc %}
+
+{% macro add_note_dialog() %}
+<div id="add_note_popup" class="top_overlay">
+  <span id="add_note_close">{{ icons.icon('close_invert') }}</span>
+  <div id="add_note_title" class="overlay_title">
+    <h1>Add a note</h1>
+  </div>
+  <div id="add_note_text">
+    <textarea name="" id="" cols="40" rows="10"></textarea>
+    <div id="add_note_text_chars">
+      <h3>140 characters remaining</h3>
+    </div>
+  </div>
+  <div id="add_note_submit" class="overlay_submit">
+    {{ misc.button("Add note", "big") }}
+  </div>
+</div>
+{% endmacro %}

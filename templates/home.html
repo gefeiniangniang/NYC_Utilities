@@ -1,0 +1,58 @@
+{% import 'basic_location.html' as basic_location %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <link rel="stylesheet" href="static/index.css">
+        <link rel="stylesheet" href="static/expanded_dialog.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='basic_location.css') }}">
+        <!-- <script type="text/javascript" src="map_location_data.json"></script> -->
+        <title>NYC Utilities</title>
+    </head>
+    <body>
+        <div id="popup1">
+            {{ basic_location.basic_location("Fairway Market", "restroom", 92, 23, ["wheelchair", "baby_changing", "unisex"]) }}
+        </div>
+        <div id="popup2">
+            {{ basic_location.basic_location("Fairway Market", "restroom", 92, 23, ["wheelchair", "baby_changing", "unisex"]) }}
+        </div>
+        <div id="app_container">
+            <div id="googleMap"></div>
+
+            <div id="bottom_bar_customize">
+                <button id="customize_close" onclick="customize_close()">X</button>
+                <div id="customize_text">Customize the bottom row by dragging and dropping icons between the bottom row and here</div>
+                <div id="outlet_group">
+                    <button class="bottom_button" id="bottom_button_outlet"></button>
+                    <div id="button_outlet_text">Outlet</div>
+                </div> 
+            </div>
+
+            <div id="bottom_bar">
+                <div class="bottom_padding"></div>
+                <div class="bottom_div">
+                    <button class="bottom_button" id="bottom_button_restroom"></button> 
+                    <!-- onmousedown="func(event)" onmouseup="clear()"  onclick="button_restroom()"-->
+                    <div>Restroom<br><br></div>
+                </div>
+                <div class="bottom_div">
+                    <button class="bottom_button" id="bottom_button_water" onclick="button_water()"></button>
+                    <div>Water<br>Fountain</div>
+                </div>
+                <div class="bottom_div">
+                    <button class="bottom_button" id="bottom_button_indoor" onclick="button_indoor()"></button>
+                    <div>Indoor<br>Space</div>
+                </div>
+                <div class="bottom_div">
+                    <button class="bottom_button" id="bottom_button_outdoor" onclick="button_outdoor()"></button>
+                    <div>Outdoor<br>Space</div>
+                </div>
+                <div class="bottom_padding"></div>
+            </div>
+        <!-- </div> -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=xxxxx&libraries=places"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="./static/map.js"></script>
+    </body>
+</html>

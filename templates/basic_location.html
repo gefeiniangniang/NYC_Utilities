@@ -1,0 +1,44 @@
+{% import 'icons.html' as icons %}
+
+{% macro basic_location(location_name, location_type, location_reliability, location_uses, location_accessibilities, id) %}
+<div class="basic_location_popup">
+  <div class="basic_location_content">
+    <div location-id="{{ id }}" class="basic_location_header">
+      <span class="basic_location_icon">
+        {{ icons.icon(location_type) }}
+      </span>
+      <span class="basic_location_title">
+        <h3>{{ location_name }}</h3>
+        <div class="basic_location_subtitle">{{ location_reliability }}% reliability at this time</div>
+        <div class="basic_location_subtitle">{{ location_uses }} uses today</div>
+      </span>
+      <span class="basic_location_expand">
+        {{ icons.icon("open") }}
+      </span>
+    </div>
+
+    <div class="basic_location_accessibility">
+      {% for accessibility in location_accessibilities %}
+          {{ icons.icon(accessibility) }}
+      {% endfor %}
+    </div>
+
+    <div class="basic_location_work">
+      <div class="basic_location_subtitle">
+        <strong>Did this location work for you?</strong>
+      </div>
+      <div class="basic_location_buttons">
+        <span class="basic_location_work_buttons">
+          {{ icons.icon("yes") }}
+          {{ icons.icon("no") }}
+        </span>
+        <span class="basic_location_favorite">
+          {{ icons.icon("heart") }}
+        </span>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="basic_location_arrow"></div>
+  <div class="basic_location_arrow_outline"></div> -->
+</div>  
+{% endmacro %}

@@ -1,0 +1,112 @@
+{% import 'expanded_dialog.html' as expanded_dialog %}
+{% import 'basic_location.html' as basic_location %}
+{% import 'add_location_dialog.html' as add_location_dialog %}
+{% import 'settings.html' as settings %}
+{% import 'add_note_dialog.html' as add_note_dialog %}
+{% import 'add_photo_dialog.html' as add_photo_dialog %}
+{% import 'icons.html' as icons %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            @font-face {
+                font-family: "SF Pro";
+                src: url({{ url_for('static', filename='fonts/SF-Pro.ttf') }});
+            }
+
+            html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0px;
+                font-family: "SF Pro";
+                font-size: 9pt;
+                color: #333;
+            }
+        </style>
+        <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='expanded_dialog.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='basic_location.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='add_location_dialog.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='settings.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='add_note_dialog.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='add_photo_dialog.css') }}">
+
+        <title>NYC Utilities</title>
+    </head>
+    <body>
+        <div id="app_container">
+            <div id="hamburger">
+                {{ icons.icon("hamburger") }}
+            </div>
+
+            <div id="popup1">
+                {{ basic_location.basic_location("Fairway Market", "restroom", 92, 23, ["wheelchair", "baby_changing", "unisex"], "fairway_market") }}
+            </div>
+            <div id="popup2">
+                {{ basic_location.basic_location("Jacqueline Kennedy Onassis Reservoir", "water_fountain", 100, 42, ["wheelchair"], "jacqueline_kennedy_onassis_reservoir") }}
+            </div>
+            {% for id, data in expanded_dialog_data.items() %}
+                <div location-id="{{id}}" class="expanded_dialog_container">
+                    {{ expanded_dialog.expanded_dialog(data) }}
+                </div>
+            {% endfor %}
+            <div class="add_photo_dialog_container">
+                {{ add_photo_dialog.add_photo_dialog() }}
+            </div>
+            <div class="add_note_dialog_container">
+                {{ add_note_dialog.add_note_dialog() }}
+            </div>
+            <div class="settings_container">
+                {{ settings.settings(preferences) }}
+            </div>
+            <div class="add_location_dialog_container">
+                {{ add_location_dialog.add_location_dialog() }}
+            </div>
+            <div id="popup1">
+                {{ basic_location.basic_location("Fairway Market", "restroom", 92, 23, ["wheelchair", "baby_changing", "unisex"]) }}
+            </div>
+            <div id="popup2">
+                {{ basic_location.basic_location("Fairway Market", "restroom", 92, 23, ["wheelchair", "baby_changing", "unisex"]) }}
+            </div>
+            <div id="googleMap"></div>
+
+            <div id="bottom_bar_customize">
+                <button id="customize_close" onclick="customize_close()">X</button>
+                <div id="customize_text">Customize the bottom row by dragging and dropping icons between the bottom row and here</div>
+                <div id="outlet_group">
+                    <button class="bottom_button" id="bottom_button_outlet"></button>
+                    <div id="button_outlet_text">Outlet</div>
+                </div> 
+            </div>
+
+            <div id="bottom_bar">
+                <div class="bottom_padding"></div>
+                <div class="bottom_div">
+                    <button class="bottom_button" id="bottom_button_restroom" onclick="button_restroom()"></button>
+                    <div>Restroom<br><br></div>
+                </div>
+                <div class="bottom_div">
+                    <button class="bottom_button" id="bottom_button_water" onclick="button_water()"></button>
+                    <div>Water<br>Fountain</div>
+                </div>
+                <div class="bottom_div">
+                    <button class="bottom_button" id="bottom_button_indoor" onclick="button_indoor()"></button>
+                    <div>Indoor<br>Space</div>
+                </div>
+                <div class="bottom_div">
+                    <button class="bottom_button" id="bottom_button_outdoor" onclick="button_outdoor()"></button>
+                    <div>Outdoor<br>Space</div>
+              </div>
+        </div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=xxxxx&libraries=places"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="{{ url_for('static', filename='expanded_dialog.js') }}"></script>
+        <script src="{{ url_for('static', filename='add_note_dialog.js') }}"></script>
+        <script src="{{ url_for('static', filename='add_photo_dialog.js') }}"></script>
+        <script src="{{ url_for('static', filename='add_location_dialog.js') }}"></script>
+        <script src="{{ url_for('static', filename='settings.js') }}"></script>
+        <script src="{{ url_for('static', filename='map.js') }}"></script>
+        <script src="{{ url_for('static', filename='index.js') }}"></script>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+{% import 'icons.html' as icons %}
+{% import 'misc_components.html' as misc %}
+
+{% macro add_photo_dialog() %}
+<div id="add_photo_popup" class="top_overlay">
+  <span id="add_photo_close">{{ icons.icon('close_invert') }}</span>
+  <div id="add_photo_title" class="overlay_title">
+    <h1>Add a photo</h1>
+  </div>
+  <div id="add_photo_spot">
+    {{ icons.icon('photo_add') }}
+  </div>
+  <div id="add_photo_submit" class="overlay_submit">
+      {{ misc.button("Add photo", "big") }}
+  </div>
+</div>
+{% endmacro %}

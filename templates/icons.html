@@ -1,0 +1,5 @@
+{% set icon_directory = "icons/" %}
+
+{% macro icon(icon_name) %}
+<img src="{{ url_for('static', filename=(icon_directory + icon_name + '.svg')) }}" class="icon_{{icon_name}}"/>
+{% endmacro %}

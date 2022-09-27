@@ -1,0 +1,229 @@
+{% import 'icons.html' as icons %}
+{% import 'misc_components.html' as misc %}
+
+{% macro expanded_dialog(data) %}
+<div class="expanded_dialog info_open">
+    {% set tab_settings = (0, 1, 2, 3) %}
+    {{ banner(data['banner_data'], tab_settings) }}
+    <div class="expanded_dialog_content_info">
+        {{ info_content(data['info_data']) }}
+    </div>
+    <div class="expanded_dialog_content_ratings">
+        {{ ratings_content(data['ratings_data']) }}
+    </div>
+    <div class="expanded_dialog_content_photos">
+        {{ photos_content(data['photos_data']) }}
+    </div>
+    <div class="expanded_dialog_content_notes">
+        {{ notes_content(data['notes_data']) }}
+    </div>
+</div>
+<div class="expanded_dialog_feedback">
+    <h2>Did this location work for you?</h2>
+    <div class="votes">
+        <span class="expanded_dialog_feedback_button">
+            {{ icons.icon('yes') }}
+        </span>
+        <span class="expanded_dialog_feedback_button">
+            {{ icons.icon('no') }}
+        </span>
+    </div>
+</div>
+{% endmacro %}
+
+{% macro info_content(info_data) %}
+{% set address_data = info_data['address_data'] %}
+{% set open_times_data = info_data['open_times_data'] %}
+<div class="flexbox_container">
+    <div>
+        <h3>Address</h3>
+        <div>
+            {{ address_data|join('<br />')|safe }}
+        </div>
+        {{ misc.button('Open in maps') }}
+    </div>
+    <div>
+        <h3>Estimated Open Times</h3>
+        <div style="display: flex;">
+            <div style="text-align: center; padding-right: 1em;">
+                M <br /> T <br /> W <br /> T <br /> F <br /> S <br /> S <br />
+            </div>
+            <div>
+                {% for time in open_times_data %}
+                {{ time|join(' - ')}}
+                <br />
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="flexbox_break"></div>
+    <div>
+        <h3>Traffic at Location</h3>
+        <img width="75%" src="{{ url_for('static', filename='images/traffic_level.png') }}" />
+    </div>
+    <div class="flexbox_break"></div>
+    {{ misc.button('Report Location', 'important')}}
+</div>
+{% endmacro %}
+
+{% macro ratings_content(ratings_data) %}
+{% set community_ratings = ratings_data['community'] %}
+{% set user_ratings = ratings_data['user'] %}
+<div>
+    <h2>Community Rating</h2>
+    <div>
+        {{ star_row(community_ratings[0]) }} <span>Cleanliness</span>
+        <br />
+        {{ star_row(community_ratings[1]) }} <span>Ease of Access</span>
+        <br />
+        {{ star_row(community_ratings[2]) }} <span>Wait Time</span>
+    </div>
+</div>
+<div>
+    <h2>Your Rating</h2>
+    <div>
+        {{ star_row(user_ratings[0]) }} <span>Cleanliness</span>
+        <br />
+        {{ star_row(user_ratings[1]) }} <span>Ease of Access</span>
+        <br />
+        {{ star_row(user_ratings[2]) }} <span>Wait Time</span>
+    </div>
+</div>
+{% endmacro %}
+
+{% macro photos_content(photos_data) %}
+{% set photos = photos_data['photos'] %}
+{% set selected_photo = photos_data['selected_photo'] %}
+<div class="photo_box bordered_box">
+    {% for photo in photos %}
+        <div photo-id="{{loop.index - 1}}" class="expanded_dialog_photo">
+            <img src="{{ url_for('static', filename=('images/' + photo['src_small'])) }}" />
+        </div>
+    {% endfor %}
+    {% if photos|length == 0 %}
+    <h3>
+        No photos uploaded yet!
+    </h3>
+    {% endif %}
+</div>
+<span class="expanded_dialog_add_photo_button">
+    {{ misc.button('Add a photo') }}
+</span>
+{% for photo in photos %}
+<div photo-id="{{loop.index - 1}}" class="expanded_dialog_photo_overlay">
+    <div photo-id="{{loop.index - 1}}" class="expanded_dialog_photo_overlay_close_button">
+        {{ icons.icon('close_invert') }}
+    </div>
+    <img src="{{ url_for('static', filename=('images/' + photo['src_large'])) }}" />
+    {{ misc.button('Report photo', 'important') }}
+    <div class="invert">
+        {{ votes(photo['votes_data']) }}
+    </div>
+</div>
+{% endfor %}
+{% endmacro %}
+
+{% macro notes_content(notes_data) %}
+<div class="keywords">
+    <div>
+        People often mention
+    </div>
+    {% for keyword in notes_data['keywords'] %}
+        {{ misc.button(keyword) }}
+    {% endfor %}
+</div>
+<div class="notes_box">
+    <div class="bordered_box">
+        {% for note_data in notes_data['notes'] %}
+            {{ note(note_data, 'selected') }}
+            {{ note(note_data) }}
+        {% endfor %}
+    </div>
+</div>
+<span class="expanded_dialog_add_note_button">
+    {{ misc.button('Add a note') }}
+</span>
+{% endmacro %}
+
+{% macro note(note_data, type = '') %}
+<div class="expanded_dialog_note {% if type == 'selected' %}selected{% endif %}">
+    <div class="note_text">
+        {{ note_data['text'] }}
+    </div>
+    {{ votes(note_data['votes_data'])}}
+    {% if type == 'selected' %}
+        {{ misc.button('Report note', 'important') }}
+    {% endif %}
+</div>
+{% endmacro %}
+
+{% macro star_row(rating) %}
+    {% for i in range(rating) %}
+    {{ icons.icon('star_yellow')}}
+    {% endfor %}
+    {% for i in range(5 - rating) %}
+    {{ icons.icon('star_gray')}}
+    {% endfor %}
+{% endmacro %}
+
+{% macro votes(votes_data) %}
+<div class="votes">
+    {{ votes_data['positive_votes'] }}
+    {{ icons.icon('yes') }}
+    {{ votes_data['negative_votes'] }}
+    {{ icons.icon('no') }}
+</div>
+{% endmacro %}
+
+{% macro banner(banner_data, tab_settings) %}
+{% set location_name = banner_data['location_name'] %}
+{% set features = banner_data['features'] %}
+{% set type = banner_data['type'] %}
+{% set img_src = banner_data['img_src'] %}
+{% set reliability = banner_data['reliability'] %}
+{% set uses = banner_data['uses'] %}
+{% set is_favorite = banner_data['is_favorite'] %}
+<div class="expanded_dialog_banner">
+    <img src="{{ url_for('static', filename=img_src) }}" class="expanded_dialog_banner_image" />
+    <div class="expanded_dialog_banner_info_container">
+        <div class="expanded_dialog_banner_info">
+            {{ icons.icon(type) }}
+            <div>
+                <h1>{{location_name}}</h1>
+                <div>{{reliability}}% reliability at this time</div>
+                <div>{{uses}} uses today</div>
+            </div>
+        </div>
+        <div class="expanded_dialog_banner_icons">
+            {% for feature in features %}
+            {{ icons.icon(feature) }}
+            {% endfor %}
+        </div>
+    </div>
+    <button class="expanded_dialog_favorite {% if is_favorite %}is_favorite{% endif %}">
+        {{ icons.icon("heart_invert") }}
+        {{ icons.icon("heart") }}
+    </button>
+    <div class="expanded_dialog_close">
+        {{ icons.icon('close') }}
+    </div>
+    {{ tab_group(tab_settings) }}
+</div>
+{% endmacro %}
+
+{# arguments holds which tab icon # they should have #}
+{% macro tab_group(tab_settings) %}
+<div class="expanded_dialog_tab_group">
+    {{ tab("Info", tab_settings[0]) }}
+    {{ tab("Ratings", tab_settings[1]) }}
+    {{ tab("Photos", tab_settings[2]) }}
+    {{ tab("Notes", tab_settings[3]) }}
+</div>
+{% endmacro %}
+
+{# level 0 = white, level 1 = light gray, level 2 = dark gray #}
+{% macro tab(name, level) %}
+<div tab-id="{{name|lower}}" class="expanded_dialog_tab tab_level_{{level}}">
+    <div>{{name}}</div>
+</div>
+{% endmacro %}

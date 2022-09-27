@@ -1,0 +1,110 @@
+{% import 'icons.html' as icons %}
+{% import 'misc_components.html' as misc %}
+
+{% macro add_location_dialog() %}
+<div class="add_location_popup">
+  <div class="add_location_header">
+    <span class="add_location_title">
+      <h3>Found a new spot?</h3>
+    </span>
+    <span class="add_location_close">
+      <div id="add_location_close_icon">
+        {{ icons.icon("close") }}
+    </div>
+    </span>
+  </div>
+  <div class="add_location_content">
+    <div class="add_location_type">
+      <div class="add_location_subtitle">
+        Choose one:
+      </div>
+      <div class="add_location_types">
+        <span class="add_location_type_option">
+          <div  id="add_location_type_r" class="add_location_type_image">
+            {{ icons.icon("restroom") }}
+          </div>
+          <div class="add_location_type_caption">
+            Restroom
+          </div>
+        </span>
+
+        <span class="add_location_type_option">
+          <div id="add_location_type_wf" class="add_location_type_image">
+            {{ icons.icon("water_fountain") }}
+          </div>
+          <div class="add_location_type_caption">
+            Water
+            Fountain
+          </div>
+        </span>
+
+        <span class="add_location_type_option">
+          <div id="add_location_type_is" class="add_location_type_image">
+            {{ icons.icon("indoor_space") }}
+          </div>
+          <div class="add_location_type_caption">
+            Indoor
+            Space
+          </div>
+        </span>
+
+        <span class="add_location_type_option">
+          <div  id="add_location_type_os" class="add_location_type_image">
+            {{ icons.icon("outdoor_space") }}
+          </div>
+          <div class="add_location_type_caption">
+            Outdoor
+            Space
+          </div>
+        </span>
+
+        <span class="add_location_type_option">
+          <div  id="add_location_type_o" class="add_location_type_image">
+            {{ icons.icon("outlet") }}
+          </div>
+          <div class="add_location_type_caption">
+            Outlet
+          </div>
+        </span>
+      </div>
+    </div>
+    <div class="add_location_basics">
+      <div class="add_location_subtitle">
+        Location:
+      </div>
+      <div>
+        <input type="text" class="add_location_input">
+      </div>
+      <div>
+        <span id="add_location_icon" >
+          {{ icons.icon("location") }}
+        </span>
+        <span>
+          <input type="text" class="add_location_input add_location_location_input">
+        </span>
+      </div>
+      <div class="add_location_map">
+        {{ misc.button("Select on map") }}
+      </div>
+    </div>
+    <div class="add_location_notes">
+      <div class="add_location_subtitle">
+        Any info you would like to share:
+      </div>
+      <div>
+        <textarea name="add_location_note" id="" cols="31" rows="4" class="add_location_note"></textarea>
+      </div>
+      <div id="add_location_photo" class="add_location_photo">
+        {{ misc.button("Upload a photo") }}
+      </div>
+    </div>
+  </div>
+  <div class="add_location_buttons">
+    <span></span>
+    <span id="add_location_submit">{{ misc.button("Add spot") }}</span>
+    <span>
+      {{ icons.icon("heart") }}
+    </span>
+  </div>
+</div>
+{% endmacro %}
